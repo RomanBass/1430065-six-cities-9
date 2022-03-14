@@ -3,6 +3,7 @@ import Main from '../main/main';
 import Login from '../login/login';
 import Favorites from '../favorites/favorites';
 import Room from '../property/property';
+import NotFound from '../not-found/not-found';
 
 type AppScreenProps = {
   rentalOffersNumber: number;
@@ -16,6 +17,7 @@ function App({rentalOffersNumber}: AppScreenProps): JSX.Element {
         <Route path='login' element={<Login />} />
         <Route path='favorites' element={<Favorites />} />
         <Route path='offer/:id' element={<Room />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
