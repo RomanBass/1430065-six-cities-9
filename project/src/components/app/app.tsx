@@ -28,5 +28,5 @@ function App({rentalOffersNumber}: AppScreenProps): JSX.Element {
     </BrowserRouter>
   );
 }
-//
+
 export default App;
