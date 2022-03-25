@@ -5,12 +5,14 @@ import Favorites from '../favorites/favorites';
 import Room from '../property/property';
 import NotFound from '../not-found/not-found';
 import PrivateRoute from '../private-route';
+import {Offers} from '../../types/offer';
 
 type AppScreenProps = {
   rentalOffersNumber: number;
+  offers: Offers;
 }
 
-function App({rentalOffersNumber}: AppScreenProps): JSX.Element {
+function App({rentalOffersNumber, offers}: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
