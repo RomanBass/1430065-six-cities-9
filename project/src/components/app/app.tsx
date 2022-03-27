@@ -24,7 +24,7 @@ function App({rentalOffersNumber, offers}: AppScreenProps): JSX.Element {
           </PrivateRoute>
         }
         />
-        <Route path='offer/:id' element={<Room />} />
+        <Route path='offer/:id' element={<Room offers={offers}/>} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

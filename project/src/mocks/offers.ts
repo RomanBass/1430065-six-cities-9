@@ -60,7 +60,7 @@ export const offers: Offer[] = [
       isPro: true,
       name: 'John',
     },
-    id: 1,
+    id: 2,
     images: [
       'img-1.png',
     ],
