@@ -23,7 +23,7 @@ export const offers: Offer[] = [
     },
     id: 1,
     images: [
-      'img_1_offer_1.jpg', 'img_2_offer_1.jpg',
+      'img/off1_img1.png', 'img/off1_img2.png', 'img/off1_img3.png', 'img/off1_img4.png', 'img/off1_img5.png', 'img/off1_img6.png',
     ],
     isFavorite: true,
     isPremium: false,
@@ -62,7 +62,7 @@ export const offers: Offer[] = [
     },
     id: 2,
     images: [
-      'img-1.png',
+      'img/img-1.png',
     ],
     isFavorite: true,
     isPremium: false,
