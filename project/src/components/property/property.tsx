@@ -14,10 +14,13 @@ function Property({ offers }: RoomProps): JSX.Element {
       return <Navigate to='*' />;
     }
 
-    const images = currentOffer.images;
+    const renderedImages = currentOffer.images.map((image) =>
+      <div key={image}><img className="property__image"  src={image} alt="Studio" /></div>,
+    );
 
-    const renderedImages = images.map((image) =>
-      <div><img className="property__image" src={image} alt="Studio" /></div>,
+    const renderedGoods = currentOffer.goods.map((good) =>
+      // <div key={image}><img className="property__image"  src={image} alt="Studio" /></div>,
+      <li className="property__inside-item" key={good}>{good}</li>,
     );
 
     return (
@@ -85,7 +88,7 @@ function Property({ offers }: RoomProps): JSX.Element {
                     Apartment
                   </li>
                   <li className="property__feature property__feature--bedrooms">
-                    3 Bedrooms
+                    {currentOffer.bedrooms} Bedrooms
                   </li>
                   <li className="property__feature property__feature--adults">
                     Max 4 adults
@@ -98,36 +101,7 @@ function Property({ offers }: RoomProps): JSX.Element {
                 <div className="property__inside">
                   <h2 className="property__inside-title">What&apos;s inside</h2>
                   <ul className="property__inside-list">
-                    <li className="property__inside-item">
-                      Wi-Fi
-                    </li>
-                    <li className="property__inside-item">
-                      Washing machine
-                    </li>
-                    <li className="property__inside-item">
-                      Towels
-                    </li>
-                    <li className="property__inside-item">
-                      Heating
-                    </li>
-                    <li className="property__inside-item">
-                      Coffee machine
-                    </li>
-                    <li className="property__inside-item">
-                      Baby seat
-                    </li>
-                    <li className="property__inside-item">
-                      Kitchen
-                    </li>
-                    <li className="property__inside-item">
-                      Dishwasher
-                    </li>
-                    <li className="property__inside-item">
-                      Cabel TV
-                    </li>
-                    <li className="property__inside-item">
-                      Fridge
-                    </li>
+                    {renderedGoods}
                   </ul>
                 </div>
                 <div className="property__host">
@@ -144,12 +118,7 @@ function Property({ offers }: RoomProps): JSX.Element {
                     </span>
                   </div>
                   <div className="property__description">
-                    <p className="property__text">
-                      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                    </p>
-                    <p className="property__text">
-                      An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                    </p>
+                    {currentOffer.description}
                   </div>
                 </div>
                 <section className="property__reviews reviews">

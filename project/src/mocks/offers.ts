@@ -11,9 +11,9 @@ export const offers: Offer[] = [
       },
       name: 'City #1',
     },
-    description: 'Nice City #1.',
+    description: 'Nice City #1 description',
     goods: [
-      'Heating',
+      'Heating', 'Kitchen', 'Off-1 goods',
     ],
     host: {
       avatarUrl: 'img_avatar_1.jpg',
@@ -44,25 +44,25 @@ export const offers: Offer[] = [
     bedrooms: 2,
     city: {
       location: {
-        latitude: 52.370216,
-        longitude: 4.895168,
+        latitude: 22.370216,
+        longitude: 24.895168,
         zoom: 10,
       },
-      name: 'Paris',
+      name: 'City #2',
     },
-    description: 'Picturesque that hides behind a a river by the unique lightness of Paris.',
+    description: 'Nice City #2 description',
     goods: [
-      'Heating',
+      'Heating', 'Wi-Fi', 'Off-2 good',
     ],
     host: {
-      avatarUrl: 'img-1.png',
+      avatarUrl: 'img/img-1.png',
       id: 2,
       isPro: true,
       name: 'John',
     },
     id: 2,
     images: [
-      'img/img-1.png',
+      'img/off2_img1.png', 'img/off2_img2.png', 'img/off2_img3.png', 'img/off2_img4.png', 'img/off2_img5.png', 'img/off2_img6.png',
     ],
     isFavorite: true,
     isPremium: false,
