@@ -19,7 +19,6 @@ function Property({ offers }: RoomProps): JSX.Element {
     );
 
     const renderedGoods = currentOffer.goods.map((good) =>
-      // <div key={image}><img className="property__image"  src={image} alt="Studio" /></div>,
       <li className="property__inside-item" key={good}>{good}</li>,
     );
 
@@ -62,12 +61,10 @@ function Property({ offers }: RoomProps): JSX.Element {
             </div>
             <div className="property__container container">
               <div className="property__wrapper">
-                <div className="property__mark">
-                  <span>Premium</span>
-                </div>
+                {currentOffer.isPremium ? <div className="property__mark"><span>Premium</span></div> : ''}
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                    Beautiful &amp; luxurious studio at great location
+                    {currentOffer.title}
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width="31" height="33">
@@ -81,17 +78,17 @@ function Property({ offers }: RoomProps): JSX.Element {
                     <span style={{ width: '80%' }}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
-                  <span className="property__rating-value rating__value">4.8</span>
+                  <span className="property__rating-value rating__value">{currentOffer.rating}</span>
                 </div>
                 <ul className="property__features">
                   <li className="property__feature property__feature--entire">
-                    Apartment
+                    {currentOffer.type}
                   </li>
                   <li className="property__feature property__feature--bedrooms">
                     {currentOffer.bedrooms} Bedrooms
                   </li>
                   <li className="property__feature property__feature--adults">
-                    Max 4 adults
+                    {currentOffer.maxAdults}
                   </li>
                 </ul>
                 <div className="property__price">
@@ -108,14 +105,12 @@ function Property({ offers }: RoomProps): JSX.Element {
                   <h2 className="property__host-title">Meet the host</h2>
                   <div className="property__host-user user">
                     <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                      <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar" />
+                      <img className="property__avatar user__avatar" src={currentOffer.host.avatarUrl} width="74" height="74" alt="Host avatar" />
                     </div>
                     <span className="property__user-name">
-                      Angelina
+                      {currentOffer.host.name}
                     </span>
-                    <span className="property__user-status">
-                      Pro
-                    </span>
+                    {currentOffer.host.isPro === true ? <span className="property__user-status">Pro</span> : ''}
                   </div>
                   <div className="property__description">
                     {currentOffer.description}
