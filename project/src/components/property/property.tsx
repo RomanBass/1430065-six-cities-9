@@ -1,12 +1,15 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Offers } from '../../types/offer';
+import { Reviews} from '../../types/review';
 
 type RoomProps = {
   offers: Offers;
+  reviews: Reviews;
 }
 
-function Property({ offers }: RoomProps): JSX.Element {
+function Property({ offers, reviews }: RoomProps): JSX.Element {
   const { id } = useParams();
+
   if (id) {
 
     const currentOffer = offers.find((offer) => offer.id === +id);
@@ -21,6 +24,36 @@ function Property({ offers }: RoomProps): JSX.Element {
     const renderedGoods = currentOffer.goods.map((good) =>
       <li className="property__inside-item" key={good}>{good}</li>,
     );
+
+    const currentReviews = reviews;
+
+    const renderedReviews = currentReviews.map((review) => {//отрисовка отзывов
+      const reviewDate = new Date(review.date);
+      return (
+        <li key={review.id} className="reviews__item">
+          <div className="reviews__user user">
+            <div className="reviews__avatar-wrapper user__avatar-wrapper">
+              <img className="reviews__avatar user__avatar" src={review.user.avatarUrl} width="54" height="54" alt="Reviews avatar" />
+            </div>
+            <span className="reviews__user-name">
+              {review.user.name}
+            </span>
+          </div>
+          <div className="reviews__info">
+            <div className="reviews__rating rating">
+              <div className="reviews__stars rating__stars">
+                <span style={{ width: '80%' }}></span>
+                <span className="visually-hidden">Rating</span>
+              </div>
+            </div>
+            <p className="reviews__text">
+              {review.comment}
+            </p>
+            <time className="reviews__time" dateTime={reviewDate.toISOString().substring(0, 10)}>{reviewDate.toLocaleString('en', { month: 'long' })} {reviewDate.toISOString().substring(8, 10)}</time>
+          </div>
+        </li>
+      );
+    });
 
     return (
       <div className="page">
@@ -117,30 +150,9 @@ function Property({ offers }: RoomProps): JSX.Element {
                   </div>
                 </div>
                 <section className="property__reviews reviews">
-                  <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
+                  <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{currentReviews.length}</span></h2>
                   <ul className="reviews__list">
-                    <li className="reviews__item">
-                      <div className="reviews__user user">
-                        <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                          <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54" alt="Reviews avatar" />
-                        </div>
-                        <span className="reviews__user-name">
-                          Max
-                        </span>
-                      </div>
-                      <div className="reviews__info">
-                        <div className="reviews__rating rating">
-                          <div className="reviews__stars rating__stars">
-                            <span style={{ width: '80%' }}></span>
-                            <span className="visually-hidden">Rating</span>
-                          </div>
-                        </div>
-                        <p className="reviews__text">
-                          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                        </p>
-                        <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
-                      </div>
-                    </li>
+                    {renderedReviews}
                   </ul>
                   <form className="reviews__form form" action="#" method="post">
                     <label className="reviews__label form__label" htmlFor="review">Your review</label>
