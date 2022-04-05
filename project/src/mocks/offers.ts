@@ -37,7 +37,7 @@ export const offers: Offer[] = [
     price: 110,
     rating: 1.8,
     title: 'Amsterdam hotel title',
-    type: 'apartment',
+    type: 'Apartment',
   },
 
   {
@@ -76,7 +76,7 @@ export const offers: Offer[] = [
     price: 120,
     rating: 2.8,
     title: 'Beijing hotel title',
-    type: 'hostel',
+    type: 'Hostel',
   },
 
   {
@@ -115,7 +115,7 @@ export const offers: Offer[] = [
     price: 130,
     rating: 3.8,
     title: 'Caen hotel title',
-    type: 'villa',
+    type: 'Villa',
   },
 
   {
