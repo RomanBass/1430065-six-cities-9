@@ -1,10 +1,13 @@
-import Card from '../card/card';
+import Cardlist from '../offers-list/offers-list';
+import { useState } from 'react';
+import {offers} from '../../mocks/offers';
 
 type MainScreenProps = {
   rentalOffersNumber: number
 }
 
 function Main({rentalOffersNumber}: MainScreenProps): JSX.Element {
+  const [, setActiveCard] = useState<number|null>(null);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -93,13 +96,7 @@ function Main({rentalOffersNumber}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-              </div>
+              <Cardlist offers={offers} setActiveCard={setActiveCard} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
