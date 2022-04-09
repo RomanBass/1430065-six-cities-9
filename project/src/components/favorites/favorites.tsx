@@ -33,6 +33,8 @@ function Favorites(): JSX.Element {
         <div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
+
+
             <ul className="favorites__list">
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -155,6 +157,8 @@ function Favorites(): JSX.Element {
                 </div>
               </li>
             </ul>
+
+
           </section>
         </div>
       </main>
