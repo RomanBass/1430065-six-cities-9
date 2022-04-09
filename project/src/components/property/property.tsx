@@ -317,7 +317,6 @@ function Property({ offers, reviews }: RoomProps): JSX.Element {
     return <Navigate to='*' />;
   }
 
-
 }
 
 export default Property;
