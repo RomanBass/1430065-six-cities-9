@@ -14,8 +14,22 @@ function Form(): JSX.Element {
 
   const stars: number[] = [5, 4, 3, 2, 1];
 
-  const renderStars = stars.map((star) =>
-    (
+  const renderStars = stars.map((star) => {
+    const titleValue = (starChecked: number) => {
+      switch (starChecked) {
+        case 5:
+          return 'perfect';
+        case 4:
+          return 'good';
+        case 3:
+          return 'not bad';
+        case 2:
+          return 'baddly';
+        case 1:
+          return 'terribly';
+      }
+    };
+    return (
       <Fragment key={star}>
         <input className="form__rating-input visually-hidden" name="rating" value={star} id={`${star}-stars`} type="radio"
           checked={formData.rating === star}
@@ -23,13 +37,14 @@ function Form(): JSX.Element {
             setFormData({ ...formData, rating: star });
           }}
         />
-        <label htmlFor={`${star}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+        <label htmlFor={`${star}-stars`} className="reviews__rating-label form__rating-label" title={titleValue(star)}>
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
         </label>
       </Fragment>
-    ));
+    );
+  });
 
   return (
     <form className="reviews__form form" action="#" method="post">
