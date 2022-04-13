@@ -11,6 +11,7 @@ function Form(): JSX.Element {
   const stars: number[] = [5, 4, 3, 2, 1];
 
   const renderStars = stars.map((star) => {
+
     const titleValue = (сheckedStarNumber: number) => {
       switch (сheckedStarNumber) {
         case 5:
@@ -25,6 +26,7 @@ function Form(): JSX.Element {
           return 'terribly';
       }
     };
+
     return (
       <Fragment key={star}>
         <input className="form__rating-input visually-hidden" name="rating" value={star} id={`${star}-stars`} type="radio"
