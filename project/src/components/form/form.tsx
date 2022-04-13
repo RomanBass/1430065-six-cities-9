@@ -1,12 +1,8 @@
 import { useState, ChangeEvent, Fragment } from 'react';
 
 function Form(): JSX.Element {
-  const initialData = {
-    rating: 0,
-    review: '',
-  };
 
-  const [formData, setFormData] = useState(initialData);
+  const [formData, setFormData] = useState({rating: 0, review: ''});
 
   const correctReview = (evt: ChangeEvent) => {
     setFormData({ ...formData, review: (evt.target as HTMLTextAreaElement).value });
