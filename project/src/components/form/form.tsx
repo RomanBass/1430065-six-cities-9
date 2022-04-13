@@ -9,9 +9,7 @@ function Form(): JSX.Element {
   const [formData, setFormData] = useState(initialData);
 
   const correctReview = (evt: ChangeEvent) => {
-    setFormData({ ...formData, review: evt.target.textContent || '' });
-    // eslint-disable-next-line no-console
-    console.log(formData);
+    setFormData({ ...formData, review: (evt.target as HTMLTextAreaElement).value });
   };
 
   const stars: number[] = [5, 4, 3, 2, 1];
@@ -45,8 +43,8 @@ function Form(): JSX.Element {
         placeholder="Tell how was your stay, what you like and what can be improved"
         onChange={correctReview}
         value={formData.review}
-      >
-      </textarea>
+      />
+
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
