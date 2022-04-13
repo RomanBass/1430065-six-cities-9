@@ -15,8 +15,8 @@ function Form(): JSX.Element {
   const stars: number[] = [5, 4, 3, 2, 1];
 
   const renderStars = stars.map((star) => {
-    const titleValue = (starChecked: number) => {
-      switch (starChecked) {
+    const titleValue = (сheckedStarNumber: number) => {
+      switch (сheckedStarNumber) {
         case 5:
           return 'perfect';
         case 4:
