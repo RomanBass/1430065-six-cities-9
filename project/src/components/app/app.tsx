@@ -7,7 +7,7 @@ import NotFound from '../not-found/not-found';
 import PrivateRoute from '../private-route';
 import {Offers} from '../../types/offer';
 import {Reviews} from '../../types/review';
-import {AppRoute} from '../../const';
+import {AppRoute, AuthorizationStatus} from '../../const';
 
 type AppScreenProps = {
   rentalOffersNumber: number;
@@ -22,7 +22,7 @@ function App({rentalOffersNumber, offers, reviews}: AppScreenProps): JSX.Element
         <Route path={AppRoute.RootPath} element={<Main rentalOffersNumber={rentalOffersNumber} />} />
         <Route path={AppRoute.LoginPath} element={<Login />} />
         <Route path={AppRoute.FavoritesPath} element={
-          <PrivateRoute>
+          <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
             <Favorites />
           </PrivateRoute>
         }
