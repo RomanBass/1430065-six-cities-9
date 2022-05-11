@@ -7,6 +7,7 @@ import NotFound from '../not-found/not-found';
 import PrivateRoute from '../private-route';
 import {Offers} from '../../types/offer';
 import {Reviews} from '../../types/review';
+import {AppRoute} from '../../const';
 
 type AppScreenProps = {
   rentalOffersNumber: number;
@@ -18,16 +19,16 @@ function App({rentalOffersNumber, offers, reviews}: AppScreenProps): JSX.Element
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Main rentalOffersNumber={rentalOffersNumber} />} />
-        <Route path='login' element={<Login />} />
-        <Route path='favorites' element={
+        <Route path={AppRoute.RootPath} element={<Main rentalOffersNumber={rentalOffersNumber} />} />
+        <Route path={AppRoute.LoginPath} element={<Login />} />
+        <Route path={AppRoute.FavoritesPath} element={
           <PrivateRoute>
             <Favorites />
           </PrivateRoute>
         }
         />
-        <Route path='offer/:id' element={<Room offers={offers} reviews={reviews}/>} />
-        <Route path='*' element={<NotFound />} />
+        <Route path={AppRoute.OfferPath} element={<Room offers={offers} reviews={reviews}/>} />
+        <Route path={AppRoute.WrongPath} element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
