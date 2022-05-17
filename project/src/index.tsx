@@ -4,14 +4,14 @@ import App from './components/app/app';
 import { offers } from './mocks/offers';
 import { reviews } from './mocks/reviews';
 
-const Setting = {
-  RENTAL_OFFERS_NUMBER: 5,
-};
+// const Setting = {
+//   RENTAL_OFFERS_NUMBER: 5,
+// };
 
 ReactDOM.render(
   <React.StrictMode>
     <App
-      rentalOffersNumber={Setting.RENTAL_OFFERS_NUMBER}
+      rentalOffersNumber={offers.length}
       offers = {offers}
       reviews = {reviews}
     />

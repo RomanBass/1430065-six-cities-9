@@ -4,7 +4,7 @@ import {offers} from '../../mocks/offers';
 import Logo from '../logo/logo';
 
 type MainScreenProps = {
-  rentalOffersNumber: number
+  rentalOffersNumber: number;
 }
 
 function Main({rentalOffersNumber}: MainScreenProps): JSX.Element {
