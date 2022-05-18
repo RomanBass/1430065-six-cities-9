@@ -153,7 +153,10 @@ function Property({ offers, reviews }: RoomProps): JSX.Element {
                     {renderedReviews}
                   </ul>
 
-                  <Form />
+                  <Form onSubmitTest={(): void => {
+                    throw new Error('Function not implemented.');
+                  }}
+                  />
 
                 </section>
               </div>

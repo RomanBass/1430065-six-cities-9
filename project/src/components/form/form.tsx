@@ -1,7 +1,12 @@
-import { useState, ChangeEvent, Fragment } from 'react';
+import { useState, ChangeEvent, Fragment, FormEvent } from 'react';
 import { STARS_RATING } from '../../const';
 
-function Form(): JSX.Element {
+type FormProps = {
+  onSubmitTest: () => void;
+}
+
+function Form(props: FormProps): JSX.Element {
+  const {onSubmitTest} = props;
 
   const [formData, setFormData] = useState({rating: 0, review: ''});
 
@@ -27,7 +32,12 @@ function Form(): JSX.Element {
     ));
 
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post"
+      onSubmit={(evt: FormEvent<HTMLFormElement>) => {
+        evt.preventDefault();
+        onSubmitTest();
+      }}
+    >
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
 
       <div className="reviews__rating-form form__rating">
@@ -44,7 +54,7 @@ function Form(): JSX.Element {
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        <button className="reviews__submit form__submit button" type="submit" disabled>Submit</button>
+        <button className="reviews__submit form__submit button" type="submit">Submit</button>
       </div>
     </form>
   );
